@@ -69,8 +69,8 @@ Open your `pom.xml` and add the plugin to the `<build>` section:
 <build>
     <plugins>
         <plugin>
-            <groupId>com.deey</groupId>
-            <artifactId>maven-tailwind-plugin</artifactId>
+            <groupId>io.github.4ndreidev</groupId>
+            <artifactId>tailwind-maven-plugin</artifactId>
             <version>1.0-SNAPSHOT</version>
         </plugin>
     </plugins>
@@ -160,8 +160,8 @@ Customize the plugin behavior using properties in your `pom.xml` or from the com
 
 ```xml
 <plugin>
-    <groupId>com.deey</groupId>
-    <artifactId>maven-tailwind-plugin</artifactId>
+    <groupId>io.github.4ndreidev</groupId>
+    <artifactId>tailwind-maven-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
     <configuration>
         <inputFile>${project.basedir}/src/main/resources/css/styles.css</inputFile>
