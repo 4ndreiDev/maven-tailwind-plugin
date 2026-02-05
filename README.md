@@ -6,6 +6,7 @@
   - [Why Use This Plugin?](#why-use-this-plugin)
   - [Who Should Use This?](#who-should-use-this)
 - [⚡ Quick Start Guide](#-quick-start-guide)
+- [📋 Available Maven Commands](#-available-maven-commands)
 - [⚙️ Configuration Parameters](#️-configuration-parameters)
 - [📁 Expected Directory Structure](#-expected-directory-structure)
 - [🔧 Requirements](#-requirements)
@@ -14,6 +15,7 @@
 - [📝 Cache Files](#-cache-files)
 - [🎯 Maven Lifecycle](#-maven-lifecycle)
 - [📖 Tailwind Documentation](#-tailwind-documentation)
+- [📚 Additional Documentation](#-additional-documentation)
 - [👨‍💻 Author](#-author)
 - [📄 License](#-license)
 - [❓ Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
@@ -47,24 +49,9 @@ This plugin is ideal for:
 
 ## ⚡ Quick Start Guide
 
-Follow these steps to get started with the Maven Tailwind Plugin in minutes:
+Here's a complete walkthrough of setting up Tailwind CSS in a new Spring Boot project:
 
-### 1️⃣ Step 1: Create the CSS Input File
-
-Create the folder structure (only once):
-```bash
-mkdir -p src/main/resources/static/css
-```
-
-Create the input file at this exact path:
-`src/main/resources/static/css/input.css`
-
-Add this content (Tailwind CSS v4):
-```css
-@import "tailwindcss";
-```
-
-### 2️⃣ Step 2: Add the Plugin to Your Project
+### Step 1: Add the plugin to your pom.xml
 
 Open your `pom.xml` and add the plugin to the `<build>` section:
 
@@ -74,7 +61,7 @@ Open your `pom.xml` and add the plugin to the `<build>` section:
         <plugin>
             <groupId>io.github.4ndreidev</groupId>
             <artifactId>tailwind-maven-plugin</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
             <executions>
                 <execution>
                     <goals>
@@ -87,70 +74,116 @@ Open your `pom.xml` and add the plugin to the `<build>` section:
 </build>
 ```
 
-### 3️⃣ Step 3: Use the CSS in Your HTML
+### Step 2: Initialize Tailwind CSS
+```bash
+mvn tailwind:init
+```
 
-Add the link to your HTML/Thymeleaf/JTE template:
+This creates:
+- Directory: `src/main/resources/static/css/`
+- File: `input.css` with Tailwind CSS v4 imports
+
+### Step 3: Create your HTML template with Tailwind classes
+Create `src/main/resources/templates/index.html`:
 ```html
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- IMPORTANT: Link the compiled CSS directly at /tailwind.css -->
+    <!-- IMPORTANT: Link the compiled CSS at /tailwind.css -->
     <link rel="stylesheet" href="/tailwind.css">
-    <title>My Tailwind App</title>
+    <title>Tailwind App</title>
 </head>
 <body>
     <div class="flex h-screen items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
-        <div class="text-center text-white">
-            <h1 class="text-5xl font-bold">Welcome to Tailwind CSS</h1>
-            <p class="mt-4 text-xl">Built with Maven Tailwind Plugin</p>
-        </div>
+        <h1 class="text-4xl font-bold text-white">Hello, Tailwind CSS!</h1>
     </div>
 </body>
 </html>
 ```
 
-### 4️⃣ Step 4: Compile Tailwind CSS
-
-Run the compilation command:
-```bash
-mvn tailwind:compile
-```
-
-The compiled CSS will be created at: `target/classes/static/tailwind.css`
-
-In Spring Boot, this is served at: `/tailwind.css`
-
-### 5️⃣ Step 5: Development with Watch Mode
-
-During development, use watch mode to automatically recompile on changes:
-
-**Terminal 1: Start your application**
+### Step 4: Run your application
 ```bash
 mvn spring-boot:run
-# or
-java -jar target/my-app.jar
 ```
 
-**Terminal 2: Watch for CSS changes**
+Visit `http://localhost:8080` and see your styled page!
+
+### Step 5: Development workflow
+In a separate terminal, run watch mode:
 ```bash
 mvn tailwind:watch
 ```
 
-Now whenever you modify your HTML files and add Tailwind classes, the CSS will automatically recompile!
-
-### 6️⃣ Step 6: Build for Production
-
-When building for production, the CSS is automatically minified:
-```bash
-mvn clean package
-```
-
-Done! Your Tailwind CSS is now compiled and ready to use. 🎉
+Now whenever you modify your HTML or add new Tailwind classes, the CSS will automatically recompile.
 
 ---
 
+## 📋 Available Maven Commands
+
+### Command 1: Initialize Project (One-time Setup)
+```bash
+mvn tailwind:init
+```
+
+**What it does:**
+- Creates the CSS input directory structure
+- Generates `src/main/resources/static/css/input.css`
+- Adds Tailwind CSS v4 imports automatically
+- Safe to run multiple times (skips if file exists)
+
+**Use case:** Use this command once when setting up your project.
+
+### Command 2: Compile CSS
+```bash
+mvn tailwind:compile
+```
+
+**What it does:**
+- Compiles the CSS input file
+- Generates `target/classes/static/tailwind.css` (minified by default)
+- Automatically executes in the `generate-resources` phase during builds
+- Can be run manually anytime
+
+**Use case:** Use this to manually trigger compilation or as part of your build process.
+
+### Command 3: Watch Mode (Development)
+```bash
+mvn tailwind:watch
+```
+
+**What it does:**
+- Monitors changes in your CSS/HTML files
+- Automatically recompiles when changes are detected
+- CSS is NOT minified by default in watch mode
+- Press `Ctrl+C` to stop
+
+**Minify in watch mode (optional):**
+```bash
+mvn tailwind:watch -Dtailwind.minify=true
+```
+
+**Use case:** Run this in a separate terminal during development for instant feedback.
+
+### Command 4: Download Binary (Advanced)
+```bash
+mvn tailwind:download
+```
+
+**What it does:**
+- Downloads the Tailwind CLI binary for your OS
+- Automatically executes in the `initialize` phase
+- Useful for preloading the cache
+
+**Force download (ignoring cache):**
+```bash
+mvn tailwind:download -Dtailwind.forceDownload=true
+```
+
+**Use case:** Use this if you need to update the cached binary.
+
+---
 
 ## ⚙️ Configuration Parameters
 
@@ -174,7 +207,7 @@ Customize the plugin behavior using properties in your `pom.xml` or from the com
 <plugin>
     <groupId>io.github.4ndreidev</groupId>
     <artifactId>tailwind-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <executions>
         <execution>
             <goals>
@@ -344,6 +377,13 @@ For more information about Tailwind CSS, visit:
 
 ---
 
+## 📚 Additional Documentation
+
+- 📋 **[CHANGELOG.md](CHANGELOG.md)** - Version history and new features
+- 🛠️ **[DEVELOPMENT.md](DEVELOPMENT.md)** - Guide for developers: How to add new Mojos and extend the plugin
+
+---
+
 ## 👨‍💻 Author
 
 **Andrei Cimpoeru**
@@ -362,6 +402,9 @@ This project is available under the MIT license (or applicable license).
 **Q: Do I need to have Tailwind installed globally?**
 A: No, the plugin downloads it automatically.
 
+**Q: Do I need to create the input.css file manually?**
+A: No, use `mvn tailwind:init` to generate it automatically. It's safe to run multiple times (skips if the file already exists).
+
 **Q: Can I change the Tailwind version?**
 A: Yes, use `-Dtailwind.version=v4.0.0` or configure it in `pom.xml`.
 
@@ -376,6 +419,9 @@ A: The plugin supports one input file and one output file. You can use `@import`
 
 **Q: Is the compiled CSS optimized?**
 A: Yes, by default it uses minification. You can disable it with `-Dtailwind.minify=false`.
+
+**Q: Do I need to run `tailwind:init` every time?**
+A: No, `tailwind:init` is a one-time setup command. After that, use `tailwind:compile` or `tailwind:watch` for development.
 
 ---
 
