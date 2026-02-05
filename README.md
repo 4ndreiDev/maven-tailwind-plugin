@@ -23,7 +23,7 @@
 
 ## What is the Maven Tailwind Plugin?
 
-The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the integration of **Tailwind CSS** into your Maven-based Java projects. Instead of managing Node.js dependencies or dealing with npm packages, this plugin provides seamless Tailwind CSS compilation directly through Maven commands.
+The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the integration of **Tailwind CSS** into your Maven-based Java projects, including **Spring Boot** applications. Instead of managing Node.js dependencies or dealing with npm packages, this plugin provides seamless Tailwind CSS compilation directly through Maven commands.
 
 ### Why Use This Plugin?
 
