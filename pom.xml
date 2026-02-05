@@ -4,26 +4,42 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.deey</groupId>
+    <groupId>io.github.4ndreidev</groupId>
     <artifactId>maven-tailwind-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>maven-plugin</packaging>
 
     <name>Maven Tailwind Plugin</name>
-    <description>A Maven plugin for compiling Tailwind CSS.</description>
-
+    <description>A zero-dependency Maven plugin for compiling Tailwind CSS v4 using the standalone CLI.</description>
     <url>https://github.com/4ndreiDev/maven-tailwind-plugin</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
+            <id>4ndreiDev</id>
             <name>Andrei Cimpoeru</name>
             <email>andrei.web.app@gmail.com</email>
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:https://github.com/4ndreiDev/maven-tailwind-plugin.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:4ndreiDev/maven-tailwind-plugin.git</developerConnection>
+        <url>https://github.com/4ndreiDev/maven-tailwind-plugin</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <tailwind.inputFile>${project.basedir}/src/main/resources/static/css/input.css</tailwind.inputFile>
         <tailwind.outputFile>${project.build.outputDirectory}/static/tailwind.css</tailwind.outputFile>
         <tailwind.version>v4.1.18</tailwind.version>
@@ -31,7 +47,6 @@
         <tailwind.baseUrl>https://github.com/tailwindlabs/tailwindcss/releases/download</tailwind.baseUrl>
         <tailwind.forceDownload>false</tailwind.forceDownload>
     </properties>
-    <packaging>maven-plugin</packaging>
 
     <dependencies>
         <dependency>
