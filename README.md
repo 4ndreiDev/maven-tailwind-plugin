@@ -1,4 +1,4 @@
-# Maven Tailwind Plugin for Spring Boot
+# Maven Tailwind Plugin for Spring Boot - Tailwind CSS v4
 
 ## 📑 Table of Contents
 
@@ -23,7 +23,7 @@
 
 ## What is the Maven Tailwind Plugin?
 
-The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the integration of **Tailwind CSS** into your Maven-based Java projects, including **Spring Boot** applications. Instead of managing Node.js dependencies or dealing with npm packages, this plugin provides seamless Tailwind CSS compilation directly through Maven commands.
+The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the integration of **Tailwind CSS v4** into your Maven-based Java projects, including **Spring Boot** applications. Instead of managing Node.js dependencies or dealing with npm packages, this plugin provides seamless Tailwind CSS compilation directly through Maven commands.
 
 ### Why Use This Plugin?
 
@@ -56,7 +56,7 @@ Create the directory and file:
 mkdir -p src/main/resources/static/css
 ```
 
-Create `src/main/resources/static/css/input.css` with the following content:
+Create `src/main/resources/static/css/input.css` with the following content (Tailwind CSS v4):
 ```css
 @import "tailwindcss";
 ```
