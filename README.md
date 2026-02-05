@@ -133,7 +133,8 @@ Add the link to your HTML file:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    ✨ <link rel="stylesheet" href="/tailwind.css"> ✨
+    <!-- 🔑 IMPORTANT: Link to the compiled Tailwind CSS -->
+    <link rel="stylesheet" href="/tailwind.css">
     <title>My Tailwind App</title>
 </head>
 <body>
@@ -354,7 +355,8 @@ your-project/
 
 Then in your HTML/Thymeleaf/JTE:
 ```html
-✨ <link rel="stylesheet" href="/tailwind.css"> ✨
+<!-- 🔑 IMPORTANT: Link to the compiled Tailwind CSS -->
+<link rel="stylesheet" href="/tailwind.css">
 ```
 
 ### 💻 Use Case 2: Local Development
