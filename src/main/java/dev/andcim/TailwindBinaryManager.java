@@ -1,4 +1,4 @@
-package com.deey;
+package dev.andcim;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;

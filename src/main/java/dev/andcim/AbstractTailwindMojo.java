@@ -1,4 +1,4 @@
-package com.deey;
+package dev.andcim;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;
