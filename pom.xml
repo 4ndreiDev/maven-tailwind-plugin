@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.deey</groupId>
+    <artifactId>maven-tailwind-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Maven Tailwind Plugin</name>
+    <description>A Maven plugin for compiling Tailwind CSS.</description>
+
+    <!-- TODO: Replace -->
+    <url>https://github.com/yourusername/maven-tailwind-plugin</url>
+
+    <developers>
+        <developer>
+            <name>Andrei Cimpoeru</name>
+            <email>andrei.web.app@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <tailwind.inputFile>${project.basedir}/src/main/resources/input.css</tailwind.inputFile>
+        <tailwind.outputFile>${project.build.outputDirectory}/static/tailwind.css</tailwind.outputFile>
+        <tailwind.version>v4.1.18</tailwind.version>
+        <tailwind.downloadDirectory>${project.build.directory}/tailwind-bin</tailwind.downloadDirectory>
+        <tailwind.baseUrl>https://github.com/tailwindlabs/tailwindcss/releases/download</tailwind.baseUrl>
+    </properties>
+    <packaging>maven-plugin</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>3.9.12</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.9.12</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.15.2</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.15.2</version>
+                <configuration>
+                    <goalPrefix>tailwind</goalPrefix>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.21.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
