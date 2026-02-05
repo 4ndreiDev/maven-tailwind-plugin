@@ -30,6 +30,7 @@
         <tailwind.version>v4.1.18</tailwind.version>
         <tailwind.downloadDirectory>${project.build.directory}/tailwind-bin</tailwind.downloadDirectory>
         <tailwind.baseUrl>https://github.com/tailwindlabs/tailwindcss/releases/download</tailwind.baseUrl>
+        <tailwind.forceDownload>false</tailwind.forceDownload>
     </properties>
     <packaging>maven-plugin</packaging>
 
