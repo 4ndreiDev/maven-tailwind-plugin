@@ -1,5 +1,32 @@
 # Maven Tailwind Plugin
 
+## 📑 Table of Contents
+
+- [What is the Maven Tailwind Plugin?](#what-is-the-maven-tailwind-plugin)
+  - [Why Use This Plugin?](#why-use-this-plugin)
+  - [Who Should Use This?](#who-should-use-this)
+- [🚀 Installation](#-installation)
+- [⚡ Quick Start Guide](#-quick-start-guide)
+- [📖 Usage](#-usage)
+  - [🔨 Command 1: Standard Compilation](#-command-1-standard-compilation)
+  - [👀 Command 2: Watch Mode (Development)](#-command-2-watch-mode-development)
+  - [📥 Command 3: Download Binary](#-command-3-download-binary)
+- [⚙️ Configuration Parameters](#️-configuration-parameters)
+- [📁 Expected Directory Structure](#-expected-directory-structure)
+- [🔧 Requirements](#-requirements)
+- [🌐 Supported Operating Systems](#-supported-operating-systems)
+- [📚 Common Use Cases](#-common-use-cases)
+- [🐛 Troubleshooting](#-troubleshooting)
+- [📝 Cache Files](#-cache-files)
+- [🎯 Maven Lifecycle](#-maven-lifecycle)
+- [📖 Tailwind Documentation](#-tailwind-documentation)
+- [👨‍💻 Author](#-author)
+- [📄 License](#-license)
+- [❓ Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
+- [📞 Support](#-support)
+
+---
+
 ## What is the Maven Tailwind Plugin?
 
 The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the integration of **Tailwind CSS** into your Maven-based Java projects. Instead of managing Node.js dependencies or dealing with npm packages, this plugin provides seamless Tailwind CSS compilation directly through Maven commands.
