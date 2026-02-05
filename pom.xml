@@ -11,8 +11,7 @@
     <name>Maven Tailwind Plugin</name>
     <description>A Maven plugin for compiling Tailwind CSS.</description>
 
-    <!-- TODO: Replace -->
-    <url>https://github.com/yourusername/maven-tailwind-plugin</url>
+    <url>https://github.com/4ndreiDev/maven-tailwind-plugin</url>
 
     <developers>
         <developer>
