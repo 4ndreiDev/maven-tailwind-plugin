@@ -26,24 +26,30 @@ public class TailwindBinaryManager {
      * Resolves the binary by detecting the OS and downloading it if necessary.
      */
     public File resolveBinary(boolean forceDownload) throws MojoExecutionException {
-        String binaryName = detectOsBinaryName();
-        File binaryFile = new File(downloadDirectory, binaryName);
-        String downloadUrl = String.format("%s/%s/%s", baseUrl, version, binaryName);
+        File binaryFile = new File(downloadDirectory, detectOsBinaryName());
 
-        if (forceDownload || !binaryFile.exists()) {
-            if (forceDownload && binaryFile.exists()) {
-                log.info("Forcing re-download of Tailwind binary...");
-            }
+        if (shouldDownload(binaryFile, forceDownload)) {
+            String downloadUrl = String.format("%s/%s/%s", baseUrl, version, binaryFile.getName());
             download(downloadUrl, binaryFile);
         } else {
-            log.info("Tailwind binary found in cache: " + binaryFile.getAbsolutePath());
+            log.info("Using cached Tailwind binary: " + binaryFile.getName());
         }
-
-        if (!binaryFile.setExecutable(true)) {
-            log.warn("Failed to set executable permissions on the binary.");
-        }
-
+        ensureExecutable(binaryFile);
         return binaryFile;
+    }
+
+    private boolean shouldDownload(File file, boolean force) {
+        if (force && file.exists()) {
+            log.info("Forcing re-download of Tailwind binary...");
+            return true;
+        }
+        return !file.exists();
+    }
+
+    private void ensureExecutable(File file) {
+        if (!file.setExecutable(true)) {
+            log.warn("Could not set executable permissions on: " + file.getName());
+        }
     }
 
     private void download(String url, File targetFile) throws MojoExecutionException {

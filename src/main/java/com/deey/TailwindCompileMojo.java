@@ -31,9 +31,7 @@ public class TailwindCompileMojo extends AbstractTailwindMojo {
         if (!inputFile.exists()) {
             throw new MojoFailureException("Tailwind input file not found: " + inputFile.getAbsolutePath());
         }
-
         File binary = getBinaryManager().resolveBinary(forceDownload);
-
         runTailwind(binary);
     }
 
@@ -42,14 +40,12 @@ public class TailwindCompileMojo extends AbstractTailwindMojo {
         if (parentDir != null && !parentDir.exists() && !parentDir.mkdirs()) {
             throw new MojoExecutionException("Failed to create output directory: " + parentDir.getAbsolutePath());
         }
-
-        List<String> command = new ArrayList<>();
-        command.add(binary.getAbsolutePath());
-        command.add("-i");
-        command.add(inputFile.getAbsolutePath());
-        command.add("-o");
-        command.add(outputFile.getAbsolutePath());
-        if (minify) command.add("--minify");
+        List<String> command = List.of(
+                binary.getAbsolutePath(),
+                "-i", inputFile.getAbsolutePath(),
+                "-o", outputFile.getAbsolutePath(),
+                minify ? "--minify" : ""
+        );
 
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
