@@ -9,7 +9,7 @@ public abstract class AbstractTailwindMojo extends AbstractMojo {
     @Parameter(property = "tailwind.version", defaultValue = "v4.1.18")
     protected String tailwindVersion;
 
-    @Parameter(property = "tailwind.downloadDirectory", defaultValue = "${project.build.directory}/tailwind-bin")
+    @Parameter(property = "tailwind.downloadDirectory", defaultValue = "${user.home}/.m2/tailwindcss")
     protected File downloadDirectory;
 
     @Parameter(property = "tailwind.baseUrl", defaultValue = "https://github.com/tailwindlabs/tailwindcss/releases/download")

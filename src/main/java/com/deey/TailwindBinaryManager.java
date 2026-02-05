@@ -39,6 +39,9 @@ public class TailwindBinaryManager {
     }
 
     private boolean shouldDownload(File file, boolean force) {
+        log.debug("Binary path: " + file.getAbsolutePath());
+        log.debug("Force download: " + force);
+        log.debug("File exists: " + file.exists());
         if (force && file.exists()) {
             log.info("Forcing re-download of Tailwind binary...");
             return true;
