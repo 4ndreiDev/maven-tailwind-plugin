@@ -5,7 +5,6 @@
 - [What is the Maven Tailwind Plugin?](#what-is-the-maven-tailwind-plugin)
   - [Why Use This Plugin?](#why-use-this-plugin)
   - [Who Should Use This?](#who-should-use-this)
-- [🚀 Installation](#-installation)
 - [⚡ Quick Start Guide](#-quick-start-guide)
 - [📖 Usage](#-usage)
   - [🔨 Command 1: Standard Compilation](#-command-1-standard-compilation)
@@ -50,38 +49,6 @@ This plugin is ideal for:
 
 ---
 
-## 🚀 Installation
-
-### 1. Add the plugin to your `pom.xml`
-
-```xml
-<build>
-    <plugins>
-        <plugin>
-            <groupId>com.deey</groupId>
-            <artifactId>maven-tailwind-plugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <configuration>
-                <!-- Optional configuration (see Configuration Parameters section) -->
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-```
-
-### 2. Create the CSS input file
-
-Create the Tailwind CSS input file at:
-```
-src/main/resources/static/css/input.css
-```
-
-**Basic content of `input.css`:**
-```css
-@import "tailwindcss";
-```
-
-For more details on Tailwind CSS installation, see the [official Tailwind CLI documentation](https://tailwindcss.com/docs/installation/tailwind-cli).
 
 ## ⚡ Quick Start Guide
 
