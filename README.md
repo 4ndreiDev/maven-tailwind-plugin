@@ -10,7 +10,6 @@
 - [📁 Expected Directory Structure](#-expected-directory-structure)
 - [🔧 Requirements](#-requirements)
 - [🌐 Supported Operating Systems](#-supported-operating-systems)
-- [📚 Common Use Cases](#-common-use-cases)
 - [🐛 Troubleshooting](#-troubleshooting)
 - [📝 Cache Files](#-cache-files)
 - [🎯 Maven Lifecycle](#-maven-lifecycle)
@@ -234,54 +233,6 @@ your-project/
 
 ---
 
-## 📚 Common Use Cases
-
-### 🍃 Use Case 1: Spring Boot Web Project
-
-```xml
-<plugins>
-    <plugin>
-        <groupId>com.deey</groupId>
-        <artifactId>maven-tailwind-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <configuration>
-            <inputFile>${project.basedir}/src/main/resources/static/css/input.css</inputFile>
-            <outputFile>${project.build.outputDirectory}/static/tailwind.css</outputFile>
-            <minify>true</minify>
-        </configuration>
-    </plugin>
-</plugins>
-```
-
-Then in your HTML/Thymeleaf/JTE:
-```html
-<!-- 🔑 IMPORTANT: Link to the compiled Tailwind CSS -->
-<link rel="stylesheet" href="/tailwind.css">
-```
-
-### 💻 Use Case 2: Local Development
-
-**Terminal 1: Compile and start the application**
-```bash
-mvn clean install
-mvn spring-boot:run
-```
-
-**Terminal 2: Watch mode for CSS**
-```bash
-mvn tailwind:watch -Dtailwind.minify=false
-```
-
-### 🚀 Use Case 3: CI/CD Pipeline
-
-```bash
-# In your pipeline (GitHub Actions, GitLab CI, etc.)
-mvn clean package
-```
-
-The plugin will automatically compile CSS during the `generate-resources` phase.
-
----
 
 ## 🐛 Troubleshooting
 
