@@ -33,7 +33,13 @@ public class TailwindCompileMojo extends AbstractTailwindMojo {
         getLog().info("Starting Tailwind CSS compilation...");
 
         if (!inputFile.exists()) {
-            throw new MojoFailureException("Tailwind input file not found: " + inputFile.getAbsolutePath());
+            throw new MojoFailureException("""
+                    
+                    Tailwind input file not found: %s
+                    
+                    Please run 'mvn tailwind:init' first to create the input file.
+                    """.formatted(inputFile.getAbsolutePath())
+            );
         }
         File binary = getBinaryManager().resolveBinary(forceDownload);
         runTailwind(binary);

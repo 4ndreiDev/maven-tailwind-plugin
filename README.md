@@ -27,6 +27,8 @@
 
 The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the integration of **Tailwind CSS v4** into your Maven-based Java projects, including **Spring Boot** applications. Instead of managing Node.js dependencies or dealing with npm packages, this plugin provides seamless Tailwind CSS compilation directly through Maven commands.
 
+Built and maintained by **4ndreiDev**, this plugin brings the modern utility-first CSS approach of Tailwind directly into the Maven ecosystem.
+
 ### Why Use This Plugin?
 
 - 🚫 **Zero Node.js Dependency**: No need to install Node.js or npm in your project. The plugin automatically downloads the Tailwind CLI binary compatible with your operating system.
@@ -39,10 +41,11 @@ The **Maven Tailwind Plugin** is a powerful Maven plugin that simplifies the int
 ### Who Should Use This?
 
 This plugin is ideal for:
-- 🏗️ Maven-based projects (Spring Boot, Jakarta EE, etc.)
+- 🏗️ Maven-based projects (Spring Boot, Jakarta EE, etc.) looking to integrate Tailwind CSS v4
 - 👥 Teams that prefer Maven over npm/yarn for dependency management
 - 🎯 Projects where you want a single build tool (Maven) instead of multiple tools
 - 🔐 Organizations with strict security policies that prefer not to use npm
+- ⚡ Developers who want a streamlined, battle-tested solution (crafted by 4ndreiDev)
 
 ---
 
@@ -91,13 +94,16 @@ Create `src/main/resources/templates/index.html`:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- IMPORTANT: Link the compiled CSS at /tailwind.css -->
+    <!-- Tailwind CSS v4 | Maven Tailwind Plugin by 4ndreiDev -->
     <link rel="stylesheet" href="/tailwind.css">
     <title>Tailwind App</title>
 </head>
 <body>
     <div class="flex h-screen items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
-        <h1 class="text-4xl font-bold text-white">Hello, Tailwind CSS!</h1>
+        <div class="text-center">
+            <h1 class="text-5xl font-bold text-white mb-4">Hello, Tailwind CSS v4!</h1>
+            <p class="text-lg text-blue-100">Powered by Maven Tailwind Plugin • Created by 4ndreiDev</p>
+        </div>
     </div>
 </body>
 </html>
@@ -433,6 +439,8 @@ If you encounter problems or have suggestions:
 3. Open an issue on the project repository
 
 ---
+
+**Maven Tailwind Plugin v1.1.0** | Built for Tailwind CSS v4 with ❤️ by **4ndreiDev**
 
 **Last Updated**: February 2026
 
