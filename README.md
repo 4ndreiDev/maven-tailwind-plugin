@@ -51,12 +51,15 @@ Follow these steps to get started with the Maven Tailwind Plugin in minutes:
 
 ### 1️⃣ Step 1: Create the CSS Input File
 
-Create the directory and file:
+Create the folder structure (only once):
 ```bash
 mkdir -p src/main/resources/static/css
 ```
 
-Create `src/main/resources/static/css/input.css` with the following content (Tailwind CSS v4):
+Create the input file at this exact path:
+`src/main/resources/static/css/input.css`
+
+Add this content (Tailwind CSS v4):
 ```css
 @import "tailwindcss";
 ```
@@ -84,18 +87,7 @@ Open your `pom.xml` and add the plugin to the `<build>` section:
 </build>
 ```
 
-### 3️⃣ Step 3: Compile Tailwind CSS
-
-Run the compilation command:
-```bash
-mvn tailwind:compile
-```
-
-The compiled CSS will be created at: `target/classes/static/tailwind.css`
-
-In Spring Boot, this is served at: `/tailwind.css`
-
-### 4️⃣ Step 4: Use the CSS in Your HTML
+### 3️⃣ Step 3: Use the CSS in Your HTML
 
 Add the link to your HTML/Thymeleaf/JTE template:
 ```html
@@ -118,6 +110,17 @@ Add the link to your HTML/Thymeleaf/JTE template:
 </body>
 </html>
 ```
+
+### 4️⃣ Step 4: Compile Tailwind CSS
+
+Run the compilation command:
+```bash
+mvn tailwind:compile
+```
+
+The compiled CSS will be created at: `target/classes/static/tailwind.css`
+
+In Spring Boot, this is served at: `/tailwind.css`
 
 ### 5️⃣ Step 5: Development with Watch Mode
 
