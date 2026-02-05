@@ -15,7 +15,7 @@ import java.util.List;
 @Mojo(name = "compile", defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
 public class TailwindCompileMojo extends AbstractTailwindMojo {
 
-    @Parameter(property = "tailwind.inputFile", defaultValue = "${project.basedir}/src/main/resources/input.css", required = true)
+    @Parameter(property = "tailwind.inputFile", defaultValue = "${project.basedir}/src/main/resources/static/css/input.css", required = true)
     private File inputFile;
 
     @Parameter(property = "tailwind.outputFile", defaultValue = "${project.build.outputDirectory}/static/tailwind.css", required = true)

@@ -25,7 +25,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tailwind.inputFile>${project.basedir}/src/main/resources/input.css</tailwind.inputFile>
+        <tailwind.inputFile>${project.basedir}/src/main/resources/static/css/input.css</tailwind.inputFile>
         <tailwind.outputFile>${project.build.outputDirectory}/static/tailwind.css</tailwind.outputFile>
         <tailwind.version>v4.1.18</tailwind.version>
         <tailwind.downloadDirectory>${user.home}/.m2/tailwindcss</tailwind.downloadDirectory>
