@@ -71,7 +71,14 @@ Open your `pom.xml` and add the plugin to the `<build>` section:
         <plugin>
             <groupId>io.github.4ndreidev</groupId>
             <artifactId>tailwind-maven-plugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
     </plugins>
 </build>
@@ -86,16 +93,18 @@ mvn tailwind:compile
 
 The compiled CSS will be created at: `target/classes/static/tailwind.css`
 
+In Spring Boot, this is served at: `/tailwind.css`
+
 ### 4️⃣ Step 4: Use the CSS in Your HTML
 
-Add the link to your HTML file:
+Add the link to your HTML/Thymeleaf/JTE template:
 ```html
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 🔑 IMPORTANT: Link to the compiled Tailwind CSS -->
+    <!-- IMPORTANT: Link the compiled CSS directly at /tailwind.css -->
     <link rel="stylesheet" href="/tailwind.css">
     <title>My Tailwind App</title>
 </head>
@@ -162,7 +171,14 @@ Customize the plugin behavior using properties in your `pom.xml` or from the com
 <plugin>
     <groupId>io.github.4ndreidev</groupId>
     <artifactId>tailwind-maven-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>compile</goal>
+            </goals>
+        </execution>
+    </executions>
     <configuration>
         <inputFile>${project.basedir}/src/main/resources/css/styles.css</inputFile>
         <outputFile>${project.build.outputDirectory}/css/output.css</outputFile>
