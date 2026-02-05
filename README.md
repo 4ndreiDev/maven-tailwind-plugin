@@ -1,4 +1,4 @@
-# Maven Tailwind Plugin
+# Maven Tailwind Plugin for Spring Boot
 
 ## 📑 Table of Contents
 
