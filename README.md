@@ -133,7 +133,7 @@ Add the link to your HTML file:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/tailwind.css">
+    ✨ <link rel="stylesheet" href="/tailwind.css"> ✨
     <title>My Tailwind App</title>
 </head>
 <body>
@@ -345,16 +345,16 @@ your-project/
         <version>1.0-SNAPSHOT</version>
         <configuration>
             <inputFile>${project.basedir}/src/main/resources/static/css/input.css</inputFile>
-            <outputFile>${project.build.outputDirectory}/static/css/tailwind.css</outputFile>
+            <outputFile>${project.build.outputDirectory}/static/tailwind.css</outputFile>
             <minify>true</minify>
         </configuration>
     </plugin>
 </plugins>
 ```
 
-Then in your HTML/Thymeleaf:
+Then in your HTML/Thymeleaf/JTE:
 ```html
-<link rel="stylesheet" href="/css/tailwind.css">
+✨ <link rel="stylesheet" href="/tailwind.css"> ✨
 ```
 
 ### 💻 Use Case 2: Local Development
