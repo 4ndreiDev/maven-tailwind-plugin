@@ -9,6 +9,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,12 +51,14 @@ public class TailwindCompileMojo extends AbstractTailwindMojo {
         if (parentDir != null && !parentDir.exists() && !parentDir.mkdirs()) {
             throw new MojoExecutionException("Failed to create output directory: " + parentDir.getAbsolutePath());
         }
-        List<String> command = List.of(
+        List<String> command = new ArrayList<>(List.of(
                 binary.getAbsolutePath(),
                 "-i", inputFile.getAbsolutePath(),
-                "-o", outputFile.getAbsolutePath(),
-                minify ? "--minify" : ""
-        );
+                "-o", outputFile.getAbsolutePath()
+        ));
+        if (minify) {
+            command.add("--minify");
+        }
 
         try {
             ProcessBuilder pb = new ProcessBuilder(command);

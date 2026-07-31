@@ -64,7 +64,7 @@ Open your `pom.xml` and add the plugin to the `<build>` section:
         <plugin>
             <groupId>io.github.4ndreidev</groupId>
             <artifactId>tailwind-maven-plugin</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
             <executions>
                 <execution>
                     <goals>
@@ -200,7 +200,7 @@ Customize the plugin behavior using properties in your `pom.xml` or from the com
 | `inputFile` | `tailwind.inputFile` | `${project.basedir}/src/main/resources/static/css/input.css` | Path to the CSS input file |
 | `outputFile` | `tailwind.outputFile` | `${project.build.outputDirectory}/static/tailwind.css` | Path to the compiled CSS file |
 | `minify` | `tailwind.minify` | `true` (compile), `false` (watch) | Minify CSS in compilation |
-| `version` | `tailwind.version` | `v4.1.18` | Version of Tailwind CSS to use. See [available versions](https://github.com/tailwindlabs/tailwindcss/releases/) |
+| `version` | `tailwind.version` | `v4.3.3` | Version of Tailwind CSS to use. See [available versions](https://github.com/tailwindlabs/tailwindcss/releases/) |
 | `downloadDirectory` | `tailwind.downloadDirectory` | `${user.home}/.m2/tailwindcss` | Directory where the binary is cached |
 | `baseUrl` | `tailwind.baseUrl` | `https://github.com/tailwindlabs/tailwindcss/releases/download` | Base URL for downloading the binary |
 | `forceDownload` | `tailwind.forceDownload` | `false` | Force binary download (ignore cache) |
@@ -213,7 +213,7 @@ Customize the plugin behavior using properties in your `pom.xml` or from the com
 <plugin>
     <groupId>io.github.4ndreidev</groupId>
     <artifactId>tailwind-maven-plugin</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <executions>
         <execution>
             <goals>
@@ -225,7 +225,7 @@ Customize the plugin behavior using properties in your `pom.xml` or from the com
         <inputFile>${project.basedir}/src/main/resources/css/styles.css</inputFile>
         <outputFile>${project.build.outputDirectory}/css/output.css</outputFile>
         <minify>true</minify>
-        <version>v4.1.18</version>
+        <version>v4.3.3</version>
     </configuration>
 </plugin>
 ```
@@ -282,12 +282,10 @@ your-project/
 | OS | Architecture | Binary |
 |----|----|---------|
 | Windows | x86_64 | `tailwindcss-windows-x64.exe` |
-| Windows | ARM64 | `tailwindcss-windows-arm64.exe` |
 | macOS | x86_64 | `tailwindcss-macos-x64` |
 | macOS | ARM64 | `tailwindcss-macos-arm64` |
 | Linux | x86_64 | `tailwindcss-linux-x64` |
 | Linux | ARM64 | `tailwindcss-linux-arm64` |
-| Linux | ARMv7 | `tailwindcss-linux-armv7` |
 
 ---
 
@@ -346,9 +344,14 @@ echo "@tailwind base; @tailwind components; @tailwind utilities;" > src/main/res
 
 ## 📝 Cache Files
 
-Downloaded binaries are cached at:
+Downloaded binaries are cached per Tailwind version at:
 ```
-~/.m2/tailwindcss/
+~/.m2/tailwindcss/<version>/
+```
+
+For example, the Windows binary for Tailwind CSS v4.3.3 is stored at:
+```
+~/.m2/tailwindcss/v4.3.3/tailwindcss-windows-x64.exe
 ```
 
 To clear the cache and force download:
@@ -440,7 +443,7 @@ If you encounter problems or have suggestions:
 
 ---
 
-**Maven Tailwind Plugin v1.1.0** | Built for Tailwind CSS v4 with ❤️ by **4ndreiDev**
+**Maven Tailwind Plugin v1.2.0** | Built for Tailwind CSS v4 with ❤️ by **4ndreiDev**
 
-**Last Updated**: February 2026
+**Last Updated**: July 2026
 

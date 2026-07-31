@@ -6,7 +6,7 @@ import java.io.File;
 
 public abstract class AbstractTailwindMojo extends AbstractMojo {
 
-    @Parameter(property = "tailwind.version", defaultValue = "v4.1.18")
+    @Parameter(property = "tailwind.version", defaultValue = "v4.3.3")
     protected String tailwindVersion;
 
     @Parameter(property = "tailwind.downloadDirectory", defaultValue = "${user.home}/.m2/tailwindcss")

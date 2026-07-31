@@ -24,9 +24,11 @@ public class TailwindBinaryManager {
 
     /**
      * Resolves the binary by detecting the OS and downloading it if necessary.
+     * Binaries are cached per version: {@code <downloadDirectory>/<version>/<binaryName>}
      */
     public File resolveBinary(boolean forceDownload) throws MojoExecutionException {
-        File binaryFile = new File(downloadDirectory, detectOsBinaryName());
+        File versionDirectory = new File(downloadDirectory, version);
+        File binaryFile = new File(versionDirectory, detectOsBinaryName());
 
         if (shouldDownload(binaryFile, forceDownload)) {
             String downloadUrl = String.format("%s/%s/%s", baseUrl, version, binaryFile.getName());

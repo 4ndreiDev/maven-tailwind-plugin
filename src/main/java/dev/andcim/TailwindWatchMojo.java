@@ -6,6 +6,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,13 +46,15 @@ public class TailwindWatchMojo extends AbstractTailwindMojo {
             throw new MojoExecutionException("Failed to create output directory: " + parentDir.getAbsolutePath());
         }
 
-        List<String> command = List.of(
+        List<String> command = new ArrayList<>(List.of(
                 binary.getAbsolutePath(),
                 "-i", inputFile.getAbsolutePath(),
                 "-o", outputFile.getAbsolutePath(),
-                "--watch",
-                minify ? "--minify" : ""
-        );
+                "--watch"
+        ));
+        if (minify) {
+            command.add("--minify");
+        }
 
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
