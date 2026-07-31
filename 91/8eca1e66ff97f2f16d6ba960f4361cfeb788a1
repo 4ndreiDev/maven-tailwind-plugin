@@ -1,0 +1,37 @@
+src/main/java/dev/andcim/TailwindCompileMojo.java
+  s_99c1742604322e::t_1d069c9c18596b 54,57-61
+  s_99c1742604322e::t_b2c3cb4aaebe44 12
+src/main/java/dev/andcim/TailwindBinaryManager.java
+  s_99c1742604322e::t_468022aeb8a9a0 27
+  s_99c1742604322e::t_67e965d621ae80 30-31
+pom.xml
+  s_99c1742604322e::t_a1e4e5973c659a 9
+  s_99c1742604322e::t_232e3175f5ed45 45
+src/main/java/dev/andcim/TailwindWatchMojo.java
+  s_99c1742604322e::t_d22d4496bb68da 49,53-57
+  s_99c1742604322e::t_6f34d7d82af9fa 9
+src/main/java/dev/andcim/AbstractTailwindMojo.java
+  s_99c1742604322e::t_43a83d48739bfe 9
+README.md
+  s_99c1742604322e::t_b6aef822c05981 203
+  s_99c1742604322e::t_0f0826a7f0917f 228
+  s_99c1742604322e::t_15d0e09e64bb2a 347,349-354
+  s_99c1742604322e::t_aa5f3e8a5a4e83 446,448
+  s_99c1742604322e::t_03c8b25136075c 67,216
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "918eca1e66ff97f2f16d6ba960f4361cfeb788a1",
+  "prompts": {},
+  "sessions": {
+    "s_99c1742604322e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_046c13821ffeqMuW12LISboTC2",
+        "model": "unknown"
+      },
+      "human_author": "Andrei Cimpoeru <andreicim@ext.inditex.com>"
+    }
+  }
+}
