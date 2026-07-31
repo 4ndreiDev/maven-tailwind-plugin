@@ -1,0 +1,19 @@
+pom.xml
+  s_99c1742604322e::t_2172b11b274da6 128-133
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "15a4dd10e1b4269e1ad2673f148f6b502dd35ccf",
+  "prompts": {},
+  "sessions": {
+    "s_99c1742604322e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_046c13821ffeqMuW12LISboTC2",
+        "model": "unknown"
+      },
+      "human_author": "Andrei Cimpoeru <andreicim@ext.inditex.com>"
+    }
+  }
+}
